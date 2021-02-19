@@ -12,7 +12,7 @@ function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0); //To know the current question
   const [currentAnswerSelected, setCurrentAnswerSelected] = useState({}); // To know about the current answer selected.
 
-  const [chosenAnswers, setChosenAnswers] = useState({}); //Entire list of selected answers (not using any localstate/ state library)
+  const [chosenAnswers, setChosenAnswers] = useState({}); //Entire list of selected answers (not using any localstorage/ state library)
   const [showAnswers, setShowAnswers] = useState(false); //Boolean to show the results.
   const [timer, setTimer] = useState(timerLimit); // To run a timer as limit on each question.
 
@@ -62,7 +62,6 @@ function App() {
 
   //To show the results method.
   function handleQuiz(showAnswers) {
-    console.log(chosenAnswers);
     if (showAnswers) return setShowAnswers(true);
   }
 
