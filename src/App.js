@@ -5,6 +5,7 @@ import QuizHeader from "./components/quizHeader";
 import AnswersTable from "./components/answersTable";
 import QuizRules from "./components/quizRules";
 import QuizEngagement from "./components/quizEngagement";
+import Questions from "./components/questions";
 const timerLimit = 20;
 
 function App() {
@@ -79,31 +80,13 @@ function App() {
 
           {currentQuestion !== questions.length && (
             <>
-              <div className="col-md-12 mb-2 text-left">
-                {currentQuestion + 1}.{questions[currentQuestion].question}
-              </div>
-              <>
-                {questions[currentQuestion].options.map((option) => (
-                  <div className="col-md-6" key={option.id}>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        handleOptionSelect(
-                          option,
-                          questions[currentQuestion].id
-                        )
-                      }
-                      className={`btn btn-light d-block w-100 mb-2 ${
-                        currentAnswerSelected.id === option.id && "active"
-                      }`}
-                    >
-                      {option.description}
-                    </button>
-                  </div>
-                ))}
-              </>
+              <Questions
+                currentQuestion={currentQuestion}
+                questions={questions}
+                handleOptionSelect={handleOptionSelect}
+                currentAnswerSelected={currentAnswerSelected}
+              />
               <QuizRules />
-
               <QuizEngagement
                 handleNextQuestion={handleNextQuestion}
                 currentAnswerSelected={currentAnswerSelected}
